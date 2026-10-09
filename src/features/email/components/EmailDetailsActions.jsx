@@ -1,0 +1,6 @@
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { AppButton } from "@/components/shared/AppButton";
+import { Download, Forward, Reply, Trash2 } from "lucide-react";
+export function EmailDetailsActions({ onReply, onForward, onDelete, onDownload, }) {
+    return (_jsxs("div", { className: "flex flex-wrap gap-2", children: [_jsx(AppButton, { variant: "secondary", className: "h-10 w-auto rounded-[12px] px-4", onClick: onReply, children: _jsxs("span", { className: "flex items-center gap-2", children: [_jsx(Reply, { className: "h-4 w-4" }), "Reply"] }) }), _jsx(AppButton, { variant: "secondary", className: "h-10 w-auto rounded-[12px] px-4", onClick: onForward, children: _jsxs("span", { className: "flex items-center gap-2", children: [_jsx(Forward, { className: "h-4 w-4" }), "Forward"] }) }), _jsx(AppButton, { variant: "secondary", className: "h-10 w-auto rounded-[12px] px-4", onClick: onDelete, children: _jsxs("span", { className: "flex items-center gap-2", children: [_jsx(Trash2, { className: "h-4 w-4" }), "Delete"] }) }), _jsx(AppButton, { className: "h-10 w-auto rounded-[12px] px-4", onClick: onDownload, children: _jsxs("span", { className: "flex items-center gap-2", children: [_jsx(Download, { className: "h-4 w-4" }), "Download attachments"] }) })] }));
+}

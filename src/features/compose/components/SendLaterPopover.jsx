@@ -1,0 +1,10 @@
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { useState } from "react";
+import { Calendar } from "lucide-react";
+const presets = ["Tomorrow", "Tomorrow, 10:00 AM", "Tomorrow, 11:00 AM", "Tomorrow, 3:00 PM"];
+export function SendLaterPopover({ value, onDone, onCancel, className, }) {
+    const [selected, setSelected] = useState(value ?? "");
+    return (_jsxs("div", { className: `z-20 w-[280px] rounded-[16px] border border-[#E5E7EB] bg-white p-4 shadow-lg ${className ?? ""}`, children: [_jsx("p", { className: "mb-3 text-base font-semibold text-[#111827]", children: "Send Later" }), _jsxs("div", { className: "mb-3 flex items-center justify-between rounded-[10px] border border-[#E5E7EB] bg-white px-3 py-2", children: [_jsx("input", { type: "datetime-local", placeholder: "Pick date & time", min: new Date(Date.now() + 60000).toISOString().slice(0, 16), value: selected && !presets.includes(selected) ? selected : "", onChange: (event) => setSelected(event.target.value), className: "w-full bg-transparent text-sm text-[#111827] outline-none placeholder:text-[#9CA3AF]" }), _jsx(Calendar, { className: "h-4 w-4 shrink-0 text-[#6B7280]" })] }), _jsx("div", { className: "mb-2", children: presets.map((preset) => (_jsx("button", { type: "button", onClick: () => setSelected(preset), className: `block w-full rounded-[8px] px-2 py-2 text-left text-sm ${selected === preset
+                        ? "bg-[#F4F7F5] font-medium text-[#111827]"
+                        : "text-[#111827] hover:bg-[#F4F7F5]"}`, children: preset }, preset))) }), _jsxs("div", { className: "flex items-center justify-end gap-4 pt-1", children: [_jsx("button", { type: "button", onClick: onCancel, className: "text-sm font-medium text-[#111827]", children: "Cancel" }), _jsx("button", { type: "button", onClick: () => onDone(selected), disabled: !selected || (!presets.includes(selected) && Number.isFinite(Date.parse(selected)) && Date.parse(selected) <= Date.now()), className: "rounded-full border border-[#00A63E] px-5 py-1.5 text-sm font-medium text-[#00A63E] disabled:opacity-40", children: "Done" })] })] }));
+}

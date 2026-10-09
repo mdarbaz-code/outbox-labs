@@ -1,0 +1,6 @@
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { Badge } from "@/components/shared/design-system/Badge";
+import { UploadCloud } from "lucide-react";
+export function AttachmentPanel({ attachments, onUpload, }) {
+    return (_jsxs("div", { className: "space-y-3 rounded-[16px] border border-[#E5E7EB] bg-[#F9FAFB] p-4", children: [_jsxs("div", { className: "flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between", children: [_jsxs("div", { children: [_jsx("p", { className: "font-medium text-[#111827]", children: "Attachments" }), _jsx("p", { className: "text-sm text-[#6B7280]", children: "Upload files or import a CSV list of recipients." })] }), _jsxs("label", { className: "inline-flex cursor-pointer items-center gap-2 rounded-[10px] border border-[#E5E7EB] bg-white px-3 py-2 text-sm font-medium text-[#111827]", children: [_jsx(UploadCloud, { className: "h-4 w-4" }), "Upload files", _jsx("input", { type: "file", className: "hidden", multiple: true, onChange: (event) => onUpload(event.target.files) })] })] }), attachments.length ? (_jsx("div", { className: "flex flex-wrap gap-2", children: attachments.map((attachment) => (_jsx(Badge, { variant: "muted", children: attachment }, attachment))) })) : null] }));
+}

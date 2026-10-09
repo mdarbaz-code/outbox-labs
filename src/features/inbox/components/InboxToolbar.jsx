@@ -1,0 +1,7 @@
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { AppButton } from "@/components/shared/AppButton";
+import { SearchInput } from "@/components/shared/design-system/SearchInput";
+import { RefreshCw } from "lucide-react";
+export function InboxToolbar({ filters, onFiltersChange, onRefresh, }) {
+    return (_jsxs("div", { className: "flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between", children: [_jsx("div", { className: "flex-1", children: _jsx(SearchInput, { placeholder: "Search inbox", value: filters.search, onChange: (event) => onFiltersChange({ ...filters, search: event.target.value }) }) }), _jsxs("div", { className: "flex flex-wrap items-center gap-2", children: [_jsxs("select", { "aria-label": "Filter by category", className: "h-12 rounded-[10px] border border-[#E5E7EB] bg-[#F4F7F5] px-3 text-sm text-[#111827]", value: filters.category, onChange: (event) => onFiltersChange({ ...filters, category: event.target.value }), children: [_jsx("option", { value: "All", children: "All" }), _jsx("option", { value: "Marketing", children: "Marketing" }), _jsx("option", { value: "Design", children: "Design" }), _jsx("option", { value: "Product", children: "Product" }), _jsx("option", { value: "Support", children: "Support" })] }), _jsx(AppButton, { variant: "secondary", className: "h-[48px] w-auto rounded-[12px] px-4", onClick: onRefresh, children: _jsxs("span", { className: "flex items-center gap-2", children: [_jsx(RefreshCw, { className: "h-4 w-4" }), "Refresh"] }) })] })] }));
+}

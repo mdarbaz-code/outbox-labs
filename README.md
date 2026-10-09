@@ -1,76 +1,34 @@
-# React + TypeScript + Vite
+# Outbox Labs — JavaScript edition
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A polished email-workspace UI built with React, Vite, Tailwind CSS v4 and Lucide icons. This version uses JavaScript/JSX rather than TypeScript.
 
-Currently, two official plugins are available:
+## Run locally
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Build
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm run build
+npm run preview
 ```
-# outbox-labs
+
+## What is included
+
+- Responsive workspace navigation for Inbox, Scheduled, Sent and Compose
+- Searchable scheduled and sent mail lists; sidebar counts derive from the current local data
+- Local persistence for sent and scheduled demo messages, plus working star toggles
+- Inbox list, email detail, attachment previews, compose/send and send-later flows
+- Separate login and signup screens (demo-only local account state)
+- Visual refresh for sidebar, mailbox rows, compose surface, auth pages, spacing and mobile layout
+
+## Important
+
+This is a front-end demo. Login/signup are not secure production authentication, and sending/scheduling is stored in the browser only. Connect an API and authentication provider before using real email accounts.
+
+
+## Frontend QA
+See [FRONTEND-QA.md](./FRONTEND-QA.md) for the screen-by-screen smoke-test checklist and current demo limitations.
